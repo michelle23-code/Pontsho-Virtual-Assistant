@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { CiMicrophoneOn } from "react-icons/ci";
+import { datacontext } from "./context/UserContext";
+import spaking from "./assets/spaek.gif";
 function App() {
-  const [count, setCount] = useState(0)
+  let { recognition, speaking, setSpeaking } = useContext(datacontext);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="main">
+      <img src={va} alt="" id="shifra" />
+      <span>I'm Shifra,Your Advanced virtual Assistant</span>
+      {!speaking ? (
+        <button
+          onClick={() => {
+            setSpeaking(true);
+            recognition.start();
+          }}
+        >
+          Click here <CiMicrophoneOn />
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      ) : (
+        <div>
+          <img src={speakimg} alt="" id="speak" />
+          <p>listeing</p>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
