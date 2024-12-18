@@ -42,8 +42,10 @@ button{
 }
 
 p{
-  font-size:1vmax;
+  font-size:1.3vmax;
   color: white;
+  text-align: center;
+  padding: 0px 40px;
 }
 
 .response{
@@ -53,5 +55,11 @@ p{
   flex-direction: column;
   gap: 10px;
 
+}
+
+#aigif{
+  width: 50vh;
+  height: 100px;
+  
 }
 
